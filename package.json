@@ -1,5 +1,6 @@
 {
-  "name": "remaster",
+  "name": "remasters",
+  "author": "KR",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.26.1",
     "@types/node": "18.15.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
@@ -18,5 +20,11 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "axios": "^1.3.4",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7"
   }
 }
