@@ -16,8 +16,9 @@ const Navigation = () => {
 		</div>
 
 		<NavItem emoji='🏠' link='/' name='home' />
-		<NavItem emoji='😂 ' link='/devjokes' name='jokes' />
-		<NavItem emoji='🧠 ' link='/gitadvice' name='advice' />
+		<NavItem emoji='😂' link='/devjokes' name='jokes' />
+		<NavItem emoji='🧠' link='/gitadvice' name='advice' />
+		<NavItem emoji='🍔' link='/hamburgers' name='hamburgers' />
 	</nav>
   );
 };

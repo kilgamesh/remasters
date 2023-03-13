@@ -59,22 +59,17 @@
 	font-size: 30px;
 	transition: 0.3s;
 }
-
-.item.one {transition-delay: calc((0.1s * 1));}
-.item.two {transition-delay: calc((0.1s * 2));}
-.item.three {transition-delay: calc((0.1s * 3));}
-
-.nav.open .item.home {
-	transform: translate(-200%, -50%) scale(1);
-}
-.nav.open .item.jokes {
-	transform: translate(-175%, -175%) scale(1);
-}
-.nav.open .item.advice {
-	transform: translate(-50%, -175%) scale(1);
-}
-
 .nav.open .item:hover {
 	background-color: #f7f7f7;
 	transition-delay: 0.05s;
 }
+
+.item.home {transition-delay: calc((0.1s * 1));}
+.item.jokes {transition-delay: calc((0.1s * 2));}
+.item.advice {transition-delay: calc((0.1s * 3));}
+.item.hamburgers{transition-delay: calc((0.1s * 4));}
+
+.nav.open .item.home {transform: translate(-200%, -50%) scale(1);}
+.nav.open .item.jokes {transform: translate(-175%, -175%) scale(1);}
+.nav.open .item.advice {transform: translate(-50%, -175%) scale(1);}
+.nav.open .item.hamburgers {transform: translate(-325%, -50%) scale(1);}
