@@ -18,7 +18,7 @@ export default function Home() {
 		  <h1 className='text-2xl mb-4'>
 			Remasters by {}
 			<a href="http://0hundred.dev" className='italic ease-in hover:text-[#ec3389]'
-		  	target="_blank" rel="noopener noreferrer">0hundred</a>
+		  	target="_blank" rel="noopener noreferrer">0hundred0</a>
 		  </h1>
 
 		  <p className='text-med font-light'>A collection of projects I have made over time, with a few updates.</p>
@@ -27,6 +27,7 @@ export default function Home() {
 		<section className='mt-12 mb-6 px-8 max-w-4xl mx-auto flex flex-wrap justify-evenly'>
 			<ProjectCard projectName='DevJokes' projectLink='/devjokes' />
 			<ProjectCard projectName='GitAdvice' projectLink='/gitadvice' />
+			<ProjectCard projectName='Hamburgers' projectLink='/hamburgers' />
 		</section>
 		<Footer />
 		<Navigation />
