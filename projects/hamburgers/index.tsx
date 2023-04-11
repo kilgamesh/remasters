@@ -1,4 +1,4 @@
-import Styles from "@/styles/modules/hamburgers.module.css";
+import Styles from "./hamburgers.module.scss";
 import Navigation from "components/navigation/Navigation";
 import Burgers from "./components/Burgers";
 import Title from "./components/Title";
@@ -20,7 +20,7 @@ const Hamburgers = () => {
 		</main>
 		<footer className={Styles.footer}>
 			<p className={`${Styles.footer_download} text-sm text-[#f7f7f7]`}>
-				Downloadable burgers components & new variations coming soon! 
+				Downloadable burgers components coming soon! 
 			</p>
     	</footer>
 		<Navigation />

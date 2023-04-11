@@ -1,6 +1,6 @@
 import { burgerTypes } from "../burgerData";
 import OneBurger from "./OneBurger";
-import Styles from "@/styles/modules/hamburgers.module.css";
+import Styles from "../hamburgers.module.scss";
 import React from "react";
 
 const Burgers = () => {
