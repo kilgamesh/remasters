@@ -1,4 +1,4 @@
-import Styles from "./project-card.module.css";
+import Styles from "./project-card.module.scss";
 import Link from "next/link";
 
 interface IProject {
@@ -7,7 +7,7 @@ interface IProject {
 }
 const ProjectCard = ({ projectName, projectLink }: IProject) => {
   return (
-  <div className="relative w-fit z-10 m-7">
+  <div className="relative z-10 mx-5 my-7">
 	<Link href={projectLink}>
 		<span className={Styles.card}>
 			{projectName}

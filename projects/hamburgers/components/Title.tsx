@@ -1,4 +1,4 @@
-import Styles from "@/styles/modules/hamburgers.module.css";
+import Styles from "../hamburgers.module.scss";
 import OneBurger from "./OneBurger";
 
 const Title = () => {

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Styles from './navigation.module.css';
+import Styles from './navigation.module.scss';
 
 interface INavItem {
 	emoji: string;

@@ -1,0 +1,79 @@
+$card-width: 9rem;
+$card-height: calc($card-width * 1.5);;
+
+
+.card {
+	background: #191c29;
+	width: $card-width;
+	height: $card-height;
+	padding: 3px;
+	position: relative;
+	border-radius: 6px;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	display: flex;
+	font-size: 1.4em;
+	color: rgb(88 199 250 / 0%);
+	cursor: pointer;
+	font-family: monospace;
+	a {
+		color: #212534;
+		text-decoration: none;
+		font-family: sans-serif;
+		font-weight: bold;
+		margin-top: 2rem;
+	}
+	  
+	&::before {
+		content: "";
+		width: 104%;
+		height: 102%;
+		background-image: linear-gradient(132deg, #132547 0%, #ec3389 43%, #00d1f1 70%, #132547 100%);
+		background-size: 500% 500%;
+		border-radius: 8px;
+		position: absolute;
+		z-index: -1;
+		top: -1%;
+		left: -2%;
+		animation: moveBackground 30s ease infinite;
+	}
+	&::after {
+		position: absolute;
+		content: "";
+		background-image: linear-gradient(132deg, #132547 0%, #ec3389 43%, #00d1f1 70%, #132547 100%);
+		background-size: 500% 500%;
+		top: calc($card-height / 8);
+		left: 0;
+		right: 0;
+		z-index: -1;
+		height: 90%;
+		width: 90%;
+		margin: 0 auto;
+		transform: scale(0.8);
+		filter: blur(calc($card-height / 5));
+		opacity: 1;
+		transition: opacity .5s;
+		animation: moveBackground 29s ease infinite;
+	}
+}
+  
+.card:hover {
+	color: rgb(88 199 250 / 100%);
+	transition: color 1s;
+	&::before, &::after {
+		animation: none;
+		opacity: 0;
+	}
+}
+@keyframes moveBackground {
+	0% {
+		background-position: 0% 5%;
+	}
+	50% {
+		background-position: 100% 96%;
+	}
+	100% {
+		background-position: 0% 5%;
+	}
+}

@@ -8,5 +8,7 @@ export const burgerTypes = [
 	{name: 'arrowAlt', color: "#fe75fe"},
 	{name: 'slide', color: "#a0ffe3"},
 	{name: 'spilled', color: "#ff6e27"},
+	{name: 'dots', color: "#ec3389"},
+	{name: 'circled', color: "#31AA39"},
 	{name: 'basic', color: "#7a04eb"}
 ]

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Styles from "@/styles/modules/hamburgers.module.css";
+import Styles from "../hamburgers.module.scss";
 
 interface IBurger {
 	name: string; 
