@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Styles from './navigation.module.css';
+import Styles from './navigation.module.scss';
 import NavItem from './NavItem';
 
 const Navigation = () => {
