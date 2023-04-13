@@ -17,8 +17,8 @@
 	"baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-	  "@/devjokes/*": ["./projects/devjokes/*"],
-	  "@/git-advice/*": ["./projects/git-advice/*"],
+	  "@/projects*": ["./projects"],
+	  "@/projects/*": ["./projects/*"],
 	  "@/styles/*": ["./styles/*"],
 	  "@/public/*": ["./public/*"]
     }

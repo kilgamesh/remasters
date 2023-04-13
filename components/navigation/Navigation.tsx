@@ -19,6 +19,7 @@ const Navigation = () => {
 		<NavItem emoji='😂' link='/devjokes' name='jokes' />
 		<NavItem emoji='🧠' link='/gitadvice' name='advice' />
 		<NavItem emoji='🍔' link='/hamburgers' name='hamburgers' />
+		<NavItem emoji='💻' link='/gituser' name='gituser' />
 	</nav>
   );
 };

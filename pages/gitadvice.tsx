@@ -1,4 +1,4 @@
-import GitAdvice from "@/git-advice/index";
+import { GitAdvice } from "@/projects";
 import Head from "next/head";
 
 const FreeAdvice = () => {

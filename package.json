@@ -1,7 +1,7 @@
 {
   "name": "remasters",
   "author": "KR",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -22,9 +22,11 @@
     "typescript": "4.9.5"
   },
   "devDependencies": {
+    "@reduxjs/toolkit": "^1.9.3",
     "autoprefixer": "^10.4.14",
     "axios": "^1.3.4",
     "postcss": "^8.4.21",
+    "react-redux": "^8.0.5",
     "sass": "^1.61.0",
     "tailwindcss": "^3.2.7"
   }

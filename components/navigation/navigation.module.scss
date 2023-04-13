@@ -75,11 +75,11 @@
 	}
 
 	.item {
-		transition-delay: 0.5s;
 		&.home {transform: translate(-200%, -50%) scale(1);}
 		&.jokes {transform: translate(-175%, -175%) scale(1);}
 		&.advice {transform: translate(-50%, -175%) scale(1);}
 		&.hamburgers {transform: translate(-325%, -50%) scale(1);}
+		&.gituser {transform: translate(-310%, -165%) scale(1);}
 	}
 	
 
