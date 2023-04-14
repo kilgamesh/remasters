@@ -21,13 +21,14 @@ export default function Home() {
 		  	target="_blank" rel="noopener noreferrer">0hundred0</a>
 		  </h1>
 
-		  <p className='text-med font-light'>A collection of projects I have made over time, with a few updates.</p>
+		  <p className='text-med font-light w-[32rem] mx-auto max-w-[80%]'>Every great thing needs a remaster right? So here is a collection of projects I have made over time, with a few updates.</p>
 		</header>
         
 		<section className='mt-12 mb-6 px-8 max-w-4xl mx-auto flex flex-wrap justify-evenly'>
 			<ProjectCard projectName='DevJokes' projectLink='/devjokes' />
 			<ProjectCard projectName='GitAdvice' projectLink='/gitadvice' />
 			<ProjectCard projectName='Hamburgers' projectLink='/hamburgers' />
+			<ProjectCard projectName='GitUser' projectLink='/gituser' />
 		</section>
 		<Footer />
 		<Navigation />
