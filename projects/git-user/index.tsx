@@ -3,7 +3,6 @@ import {QueryClient, QueryClientProvider, useQuery} from '@tanstack/react-query'
 import GitUserContext from './context/GitUserContext';
 import { Header, SearchBar, Card } from "./components";
 import Styles from './gitUser.module.scss';
-import { UserType } from "./data/Types";
 
 const emptyUser = {
 	login: '',
@@ -21,7 +20,7 @@ const emptyUser = {
 	public_repos: 0,
 	twitter: '',
 	company: '',
-	created_date: ''
+	created_at: ''
 }
 
 function GitUser() {
@@ -30,7 +29,20 @@ function GitUser() {
 	}});
 	const [ username, setUsername ] = useState('octocat');
 	const [ userAccount, setUserAccount ] = useState(emptyUser);
-	const [ isDarkmode, setDarkmode ] = useState(true);
+	const [ isDarkmode, setDarkmode ] = useState<boolean | null>(null);
+	const [ isSearching, setSearching ] = useState<boolean>(false);
+	const [ errorFound, setErrorFound ] = useState(false);
+
+	// Theming
+	useEffect(() => {
+		const localTheme = localStorage.getItem('isDarkTheme')?.toString();
+		if(localTheme) {
+			setDarkmode(localTheme === 'dark' ? true : false)
+		} else {
+			localStorage.setItem('isDarkTheme', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+			setDarkmode(window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false);
+		}
+	}, []);
 
 	return (
 		<QueryClientProvider client={client}>
@@ -38,17 +50,21 @@ function GitUser() {
 		  	value={{
 				username, setUsername, 
 				userAccount, setUserAccount,
-				isDarkmode, setDarkmode
+				isDarkmode, setDarkmode, 
+				isSearching, setSearching,
+				errorFound, setErrorFound
 			}}
 		  >
-			<div className={`${Styles.appContainer}`}>
-				<Header />
-				<SearchBar />
-				<Card />
+			<div className={`${Styles.App} ${isDarkmode && Styles.darkmode}`}>
+				<div className={`${Styles.container}`}>
+					<Header />
+					<SearchBar />
+					<Card />
+				</div>
+				<footer className={`${Styles.footer}`}>
+					Coded with ♥️ by <a href="http://0hundred.dev" target="_blank" rel="noopener noreferrer">K.Richmond</a>
+				</footer>
 			</div>
-			<footer className={`${Styles.footer}`}>
-				Coded with ♥️ by <a href="http://0hundred.dev" target="_blank" rel="noopener noreferrer">K.Richmond</a>
-			</footer>
 		  </GitUserContext.Provider>
 		</QueryClientProvider>
 	)

@@ -1,0 +1,494 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+$blue: #0079FF;
+$grey: #697C9A;
+$chambray: #4B6A9B;
+$darkgray: #2B3442;
+
+$lightgray: #F6F8FF;
+$offwhite: #FEFEFE;
+
+//DarkMode Colors
+$white: #FFFFFF;
+$navyblue: #141D2F;
+$darkblue: #1E2A47;
+
+@mixin breakpoint($respond) {
+	@if $respond == "tablet" {@media (min-width: 48em) {@content}};
+
+	@if $respond == "tabletLandscape" {@media (min-width: 57.8em) {@content}};
+
+	@if $respond == "desktop" {@media (min-width: 64em) {@content}};
+}
+
+
+.App {
+	background-color: $lightgray;
+	box-sizing: border-box;
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 1.2rem 0 1rem;
+	font-family: 'Space Mono', monospace;
+    font-size: 1.3rem;
+    line-height: 2.5rem;
+    font-weight: 400;
+
+    @include breakpoint("tablet") {
+        font-size: 1.5rem;
+    }
+
+	&.darkmode {
+		background-color: $navyblue;
+	}
+	h1 {
+		font-size: 1.6rem;
+		line-height: 2.5rem;
+		font-weight: 700;
+	
+		@include breakpoint("tablet") {
+			font-size: 2.6rem;
+			line-height: 3.8rem;
+		}
+	}
+	
+	h2 {
+		font-size: 1.6rem;
+	  line-height: 2.5rem;
+	
+		@include breakpoint("tablet") {
+			font-size: 2.2rem;
+			font-weight: 700;
+			line-height: 3.3rem;
+		}
+	}
+	
+	h3 {
+		font-size: 1.6rem;
+		font-weight: 400;
+		line-height: 2.4rem;
+	}
+	
+	h4 {
+		font-size: 1.3rem;
+		font-weight: 400;
+		line-height: 2rem;
+	}
+}
+
+.container {
+	width: 90%;
+	margin-bottom: 3.1rem;
+	font-family: 'Space Mono', monospace;
+	font-size: 1.5rem;
+	line-height: 2.5rem;
+	font-weight: 400;
+	@include breakpoint("tablet") {
+		max-width: 48rem;
+	}
+	@include breakpoint("desktop") {
+		max-width: 73rem;
+	}
+}
+
+.search {
+	position: relative;
+	height: 6rem;
+	margin: 3.6rem auto 1.6rem;
+	border-radius: 1.5rem;
+	box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
+	&.error {
+		.input {
+			color: #ea165c;
+			&::placeholder {
+				color: #ea165c;
+			}
+		}
+	}
+	
+	.icon {
+		height: 2rem;
+		width: fit-content;
+		position: absolute;
+		left: 1.6rem;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	.input {
+		width: 60%;
+		border: none;
+		background: transparent;
+		font-size: 13px;
+		line-height: 25px;
+		position: absolute;
+		left: 4.5rem;
+		top: 50%;
+		transform: translateY(-50%);
+
+		&::placeholder {
+			color: $chambray;
+			font-family: 'Space Mono', monospace;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.result {
+		position: absolute;
+		right: 7.5rem;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 1.5rem;
+		color: #F74646;
+		font-family: 'Space Mono', monospace;
+		font-weight: 700;
+	}
+
+	.button {
+		font-family: 'Space Mono', monospace;
+		width: 8.4rem;
+		height: 4.6rem;
+		border-radius: 1rem;
+		border: none;
+		background: $blue;
+		color: $white;
+		font-size: 1.4rem;
+		font-weight: 700;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 1rem;
+		&:active, &:hover {
+			background: #60ABFF;
+		}
+		&.loading {
+			background: $darkgray;
+		}
+	}
+	.loader {
+		
+		height: 3rem; width: 3rem;
+		margin: auto;
+		transform-origin: center center;
+		animation: rotate 2s linear infinite;
+		
+		&_path {
+			stroke-dasharray: 150, 200;
+			stroke-dashoffset: -10;
+			stroke-linecap: round;
+			animation: dash 1.5s ease-in-out infinite;
+		}
+	}
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	
+	.theme {
+		cursor: pointer;
+		display: flex;
+		color: $chambray;
+		text-transform: uppercase;
+		justify-content: space-around;
+		align-items: center;
+	
+		&_icon {
+			margin-left: 1.6rem;
+			height: 2rem;
+			width: 2rem;
+			&.light {
+				filter: invert(38%) sepia(89%) saturate(270%) hue-rotate(176deg) brightness(87%) contrast(90%);
+			}
+		}
+	
+		&:hover {
+			color: #222731;
+		}
+		&:hover > &_icon {
+			&.light {
+				filter: invert(11%) sepia(8%) saturate(2060%) hue-rotate(181deg) brightness(90%) contrast(86%);
+			}
+		}
+	}
+	.title {
+		font-size: 2.6rem;
+		color: #222731;
+	}
+}
+
+.card {
+	margin: 1.6rem auto 0;
+	padding: 3.2rem 2.5rem;
+	background-color: $white;
+	color: $grey;
+
+	border-radius: 1.5rem;
+	box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
+	@include breakpoint('tablet') {
+		min-height: 48rem;
+	}
+
+	.header {
+		display: flex;
+		align-items: center;
+		height: 7rem;
+		margin: 1.6rem 0 3rem;
+
+		@include breakpoint('tablet') {
+			margin: 1.6rem 0 4.3rem;
+		}
+		@include breakpoint('desktop') {
+			margin-left: 1.2rem;
+			margin-bottom: 1rem;
+		}
+
+		&_img {
+			height: 7rem;
+			width: 7rem;
+			border-radius: 50%;
+			margin-right: 2rem;
+			@include breakpoint('tablet') {
+				height: 11.7rem;
+				width: 11.7rem;
+			}
+			@include breakpoint('desktop') {
+				margin-right: 2rem;
+				margin-top: 2rem;
+			}
+		}
+
+		&_text {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 100%;
+
+			@include breakpoint('desktop') {
+					margin-top: -2rem;
+			}
+			&__name {
+					color: $darkgray;
+			}
+
+			&__tag {
+				a {
+					text-decoration: none;
+					color: $blue;
+				}
+				&:hover {
+					a {color: #60ABFF;}
+				}
+			}
+
+			&__joinDate {
+				color: $grey;
+
+				@include breakpoint('desktop') {
+					position: absolute;
+					top: 0;
+					right: 0;
+				}
+			}
+		}
+	}
+
+	.bio {
+		margin-bottom: 2.3rem;
+	
+		@include breakpoint('desktop') {
+			margin-left: 15rem;
+		}
+	}
+
+	.stats {
+		display: flex;
+		justify-content: space-evenly;
+		background-color: $lightgray;
+		padding: 1.8rem 1.5rem;
+		border-radius: 1.5rem;
+		text-align: center;
+		margin-bottom: 2.4rem;
+	
+		@include breakpoint('desktop') {
+			margin-left: 15rem;
+		}
+	
+		&_header {
+			font-size: 1.3rem;
+			display: block;
+			@include breakpoint('tablet') {
+				font-size: 1.1rem;
+			}
+			margin-bottom: 0.8rem;
+		}
+	}
+
+	.links {
+		display: flex;
+		min-height: 14rem;
+		flex-direction: column;
+		justify-content: space-between;
+	
+		@include breakpoint('desktop') {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+	
+		@include breakpoint('desktop') {
+			margin-left: 15rem;
+		}
+	
+		&_item {
+			display: flex;
+			align-items: center;
+	
+			@include breakpoint('tablet') {
+				width: 50%;
+				flex-wrap: wrap;
+			}
+		}
+	
+		&_text {
+			margin-left: 1.3rem;
+			color: $chambray;
+						
+			a {
+				color: $chambray;
+				text-decoration: none;
+	
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+		img {
+			height: max-content;
+			width: max-content;
+		}
+	}
+}
+
+.footer {
+	position: absolute;
+	bottom: 1.5rem;
+	color: $navyblue;
+	a {
+		transition: all 0.15s ease-in;
+		text-decoration: none;
+		&:hover {color: #ea165c;}
+	}
+}
+
+.darkmode {
+	.search {
+		background-color: $darkblue;
+		box-shadow: none;
+
+		.input {
+			color: $white;
+			&::placeholder {
+				color: $white;
+			}
+		}
+
+		&.error {
+			.input {
+				color: #ea165c;
+				&::placeholder {
+					color: #ea165c;
+				}
+			}
+		}
+	}
+	
+	.header {
+		.title {
+			color: $white;
+		}
+		.theme {
+			color: $white;
+			&_icon {
+					&.dark {
+							filter: invert(91%) sepia(100%) saturate(30%) hue-rotate(252deg) brightness(106%) contrast(100%);
+					}  
+			}
+	
+			&:hover {
+				color: #90A4D4;
+				.dark {
+						filter: invert(66%) sepia(16%) saturate(699%) hue-rotate(184deg) brightness(94%) contrast(98%);
+				}
+			}
+		}
+	}
+
+	.card {
+		background-color: $darkblue;
+		color: $white;
+		box-shadow: none;
+
+		.header {
+			&_text {
+				&__name {
+					color: $white;
+				}
+
+				&__joinDate {
+					color: $white;
+				}
+			}
+		}
+
+		.stats {
+			background-color: $navyblue;
+		}
+
+		.links {
+			&_text {
+				color: $white;
+			}
+					
+			a {
+				color: $white;
+			}
+		}
+		.lowLight {
+			color: rgba($white, 0.5)
+		}
+	}
+
+	.footer {
+		color: $lightgray;
+	}
+}
+
+@keyframes rotate {
+	100% {transform: rotate(360deg);}
+}
+
+@keyframes dash {
+	0% {
+	  stroke-dasharray: 1,200;
+	  stroke-dashoffset: 0;
+	}
+	50% {
+	  stroke-dasharray: 89,200;
+	  stroke-dashoffset: -35;
+	}
+	100% {
+	  stroke-dasharray: 89,200;
+	  stroke-dashoffset: -124;
+	}
+}

@@ -16,7 +16,8 @@ export type UserType = {
 	public_repos: number;
 	twitter?: string;
 	company?: string;
-	created_date: string;
+	created_at: string;
+	message?: string;
 }
 
 export interface GitUserContextType {
@@ -24,8 +25,12 @@ export interface GitUserContextType {
 	setUsername: Function; 
 	userAccount: UserType;
 	setUserAccount: Function;
-	isDarkmode: boolean; 
+	isDarkmode: boolean | null; 
 	setDarkmode: Function;
+	isSearching: boolean;
+	setSearching: Function;
+	errorFound: boolean;
+	setErrorFound: Function;
 }
 
 export interface UsersStateValue {
